@@ -41,12 +41,7 @@ app.layout= html.Div([
 def drop(state,country):
    # df=pd.read_csv('dummy.csv')
     dfs=df[df['Country']==country]
-    print('Here')
-    print(dfs)
-    print(country)
-    print(state)
     dfc=dfs[dfs['State']==state]
-    print(dfs)
     return [{"label":j,"value":j} for j in dfs['State'].unique()] , [{"label":i,"value":i} for i in dfc['City'].unique()]
 
 
