@@ -21,25 +21,29 @@ dat={}
 dd1=[]
 dd2=[]
 
-ward_61 = json.load(open('ward_61_1.geojson', 'r'))
+ward_61 = json.load(open('ward_61.geojson', 'r'))
 
 
-dfd = pd.read_csv('waste_dummy.csv')
-
+dfd = pd.read_csv('dummy_w.csv')
+radio=list(dfd.columns)
+radio.pop(0)
 l = []
 
-
+# handling null values in geojson
 i = 0
 for feature in ward_61['features']:
     if feature['properties']['name'] is None:
-            feature['properties']['name'] = 'dummy_' + str(i)
+            feature['properties']['name'] = 'random_' + str(i)
             i += 1
     l.append(feature['properties']['name'])
 i=0
 building_id_map = {}
+
+#mapping geojson with csv using id columns (osm_id)
 for feature in ward_61["features"]:
-    feature["id"] = feature["properties"]["region_id"]
-    building_id_map[feature["properties"]["region_nam"]] = feature["id"]
+    # feature["properties"]["oid"]=i
+    feature["id"] = feature["properties"]["osm_id"]
+    building_id_map[feature["properties"]["name"]] = feature["id"]
 
 dfd["id"] = dfd["name"].apply(lambda x: building_id_map[x])
 
@@ -120,9 +124,26 @@ for i in range(1,len(col)):
 
 layout.append(dbc.Row(dd2,justify="center"))
 
+# adding radio buttons
+layout.append(dbc.Row(html.P("Select Waste Type:")))
 layout.append(dbc.Row([
     dbc.Col([
-        html.P("Map Here"),
+
+    dcc.RadioItems(
+        id='waste_type',
+        options=[{'value': x, 'label': x}
+                 for x in radio],
+        value=radio[0],
+        labelStyle={'display': 'inline-block'}
+    )
+    ], width=1)
+]
+
+))
+
+layout.append(dbc.Row([
+    dbc.Col([
+        
         dcc.Graph(id='choropleth',figure={})
 
     ])
@@ -181,14 +202,14 @@ def date_selected(date):
 
 @app.callback(
     Output('choropleth','figure'),
-    Input('my-slider','value')
+    Input('waste_type','value')
 )
 def show_map(val):
     fig = px.choropleth(
         dfd,
         locations="id",
         geojson=ward_61,
-        color="waste",
+        color=val,
     )
     fig.update_geos(fitbounds="locations", visible=False)
     return fig
