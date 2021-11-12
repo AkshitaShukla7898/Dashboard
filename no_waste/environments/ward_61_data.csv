@@ -1,0 +1,148 @@
+osm_id,buildingma,accessroof,addrhousen,name,addrstreet,building,roofmateri,osmid,osmward,building_cluster,region,total waste,dry waste,wet waste
+228031933,,,,Anand Vihar,,residential,,1,61,A1,A,291,83,208
+844471187,,,,City International School,,school,,1,61,C1,C,599,379,220
+228031930,,,,East Side Apartments,,apartments,,1,61,A1,A,523,79,444
+227895887,,,,Evershine Greens,,apartments,,1,61,C1,C,899,552,347
+227895902,,,,Evershine Greens,,apartments,,1,61,C1,C,262,95,167
+249860434,,,701,Garden View - Dr Kaushal Shah's Residence,Off New Link Rd,yes,,1,61,A1,A,770,2,768
+202516364,,,,Heera Panna,,commercial,,1,61,B1,B,28,20,8
+249860466,,,,Kaveri,,apartments,,1,61,B1,B,668,122,546
+249860394,,,,Link Way,,yes,,1,61,A1,A,494,354,140
+249860389,,,flat no. 404,Marigold Apartments,Off New Link Road,apartments,,1,61,A2,A,188,104,84
+249860327,,,,Meera C.H.S.,"Link Road Extension, Oshiwara, Andheri West",residential,,1,61,B1,B,275,48,227
+228031929,,,,Oshiwara Basera,,residential,,1,61,A1,A,628,247,381
+417320262,,,,Oshiwara Police Station,,yes,,1,61,B1,B,312,172,140
+202555836,,,,Park Paradise,,yes,,1,61,A1,A,29,10,19
+202555854,,,,Park View,,yes,,1,61,A1,A,703,535,168
+227895915,,,,Raigad Military School,,school,,1,61,C1,C,747,118,629
+249860449,,,,Rajnigandha,,apartments,,1,61,A1,A,426,270,156
+249860438,,,,Rajrani Malhotra Vidyalaya,,school,,1,61,A1,A,312,217,95
+202516362,,,,random_0,,yes,,1,61,B1,B,35,12,23
+227895899,,,,random_1,,residential,,1,61,C3,C,812,549,263
+357305658,,,,random_2,,apartments,,1,61,C2,C,616,110,506
+357305671,,,,random_3,,yes,,1,61,C2,C,983,681,302
+357305680,,,,random_4,,yes,,1,61,C1,C,511,417,94
+357305681,,,,random_5,,yes,,1,61,C3,C,347,272,75
+357305683,,,,random_6,,apartments,,1,61,C3,C,103,40,63
+358508758,,,,random_7,,yes,,1,61,C2,C,875,49,826
+358508761,,,,random_8,,yes,,1,61,C2,C,346,271,75
+358822891,,,,random_9,,yes,,1,61,C2,C,39,29,10
+358831990,,,,random_10,,yes,,1,61,C3,C,86,1,85
+358832004,,,,random_11,,yes,,1,61,C3,C,133,15,118
+227895903,,,,random_12,,residential,,1,61,C1,C,274,265,9
+358852089,,,,random_13,,apartments,,1,61,C3,C,867,854,13
+359269237,,,,random_14,,yes,,1,61,C1,C,616,286,330
+359269239,,,,random_15,,apartments,,1,61,C3,C,766,728,38
+359269240,,,,random_16,,yes,,1,61,C1,C,75,75,0
+359269241,,,,random_17,,yes,,1,61,C3,C,465,269,196
+359269244,,,,random_18,,yes,,1,61,C1,C,441,124,317
+986880185,,,,random_19,,apartments,,1,61,C2,C,877,336,541
+227895904,,,,random_20,,residential,,1,61,C3,C,720,576,144
+227895905,,,,random_21,,residential,,1,61,C1,C,75,36,39
+227895908,,,,random_22,,residential,,1,61,C3,C,936,426,510
+227895909,,,,random_23,,residential,,1,61,C3,C,345,256,89
+227895910,,,,random_24,,residential,,1,61,C3,C,820,626,194
+227895911,,,,random_25,,residential,,1,61,C3,C,222,28,194
+227895912,,,,random_26,,residential,,1,61,C3,C,83,14,69
+227895914,,,,random_27,Off New Link Road,yes,,1,61,C1,C,598,470,128
+227895886,,,,random_28,,residential,,1,61,C3,C,987,815,172
+227895916,,,,random_29,,residential,,1,61,C1,C,164,125,39
+227895917,,,,random_30,,residential,,1,61,C1,C,685,407,278
+249860328,,,,random_31,,yes,,1,61,A2,A,147,86,61
+249860330,,,,random_32,,yes,,1,61,A2,A,775,579,196
+249860331,,,,random_33,,apartments,,1,61,A2,A,707,705,2
+249860335,,,,random_34,,yes,,1,61,A1,A,561,404,157
+249860342,,,,random_35,,yes,,1,61,A1,A,57,17,40
+249860344,,,,random_36,,yes,,1,61,B1,B,606,462,144
+249860345,,,,random_37,,apartments,,1,61,B1,B,131,122,9
+249860353,,,,random_38,,apartments,,1,61,A1,A,267,151,116
+227895889,,,,random_39,,apartments,,1,61,C1,C,812,424,388
+249860355,,,,random_40,,apartments,,1,61,A2,A,980,236,744
+249860360,,,,random_41,,yes,,1,61,A1,A,297,68,229
+249860365,,,,random_42,,apartments,,1,61,A1,A,905,627,278
+249860366,,,,random_43,,yes,,1,61,B1,B,333,97,236
+249860369,,,,random_44,,apartments,,1,61,B1,B,262,21,241
+249860374,,,,random_45,,apartments,,1,61,A2,A,43,17,26
+249860375,,,,random_46,,apartments,,1,61,A1,A,256,244,12
+249860377,,,,random_47,,yes,,1,61,A1,A,810,376,434
+249860383,,,,random_48,,apartments,,1,61,A1,A,610,235,375
+249860386,,,,random_49,,apartments,,1,61,B1,B,651,296,355
+227895891,,,,random_50,,residential,,1,61,C1,C,507,183,324
+249860393,,,,random_51,,apartments,,1,61,A1,A,637,377,260
+249860396,,,,random_52,,apartments,,1,61,B1,B,2,1,1
+249860398,,,,random_53,,apartments,,1,61,B1,B,932,167,765
+249860399,,,,random_54,,yes,,1,61,B1,B,459,240,219
+249860402,,,,random_55,,apartments,,1,61,A2,A,693,533,160
+249860408,,,,random_56,,apartments,,1,61,A1,A,318,153,165
+249860410,,,,random_57,,apartments,,1,61,B1,B,622,153,469
+249860412,,,,random_58,,apartments,,1,61,B1,B,986,582,404
+249860415,,,,random_59,,apartments,,1,61,A2,A,151,120,31
+249860418,,,,random_60,,apartments,,1,61,B1,B,47,30,17
+227895892,,,,random_61,,residential,,1,61,C3,C,917,290,627
+249860421,,,,random_62,,apartments,,1,61,A2,A,815,482,333
+249860424,,,,random_63,,yes,,1,61,A1,A,467,39,428
+249860425,,,,random_64,,apartments,,1,61,A2,A,190,35,155
+249860428,,,,random_65,,apartments,,1,61,B1,B,204,87,117
+249860429,,,,random_66,,apartments,,1,61,B1,B,174,114,60
+249860433,,,,random_67,,apartments,,1,61,A2,A,406,199,207
+249860442,,,,random_68,,apartments,,1,61,A1,A,872,515,357
+249860444,,,,random_69,,apartments,,1,61,B1,B,229,172,57
+249860451,,,,random_70,,apartments,,1,61,A2,A,958,531,427
+249860456,,,,random_71,,yes,,1,61,A1,A,338,8,330
+227895894,,,,random_72,,residential,,1,61,C1,C,343,161,182
+249860462,,,,random_73,,apartments,,1,61,A1,A,736,430,306
+249860469,,,,random_74,,apartments,,1,61,A1,A,32,28,4
+249860471,,,,random_75,,yes,,1,61,A2,A,25,14,11
+249864713,,,,random_76,,apartments,,1,61,A1,A,10,10,0
+249897526,,,,random_77,,yes,,1,61,B2,B,377,246,131
+249897534,,,,random_78,,yes,,1,61,B2,B,595,453,142
+249897536,,,,random_79,,yes,,1,61,B1,B,557,386,171
+249897537,,,,random_80,,yes,,1,61,B1,B,934,123,811
+249897540,,,,random_81,,yes,,1,61,C1,C,374,18,356
+249897546,,,,random_82,,yes,,1,61,B2,B,523,356,167
+227895895,,,,random_83,,residential,,1,61,C3,C,803,794,9
+249897555,,,,random_84,,yes,,1,61,B2,B,152,2,150
+249897558,,,,random_85,,yes,,1,61,B1,B,227,202,25
+249897561,,,,random_86,,yes,,1,61,B2,B,418,277,141
+249897562,,,,random_87,,yes,,1,61,B2,B,996,638,358
+249897563,,,,random_88,,yes,,1,61,B1,B,985,796,189
+249897567,,,,random_89,,yes,,1,61,B2,B,116,0,116
+249897570,,,,random_90,,yes,,1,61,B1,B,348,76,272
+249897574,,,,random_91,,yes,,1,61,C1,C,47,22,25
+249897575,,,,random_92,,yes,,1,61,B2,B,653,118,535
+249897576,,,,random_93,,yes,,1,61,B2,B,635,388,247
+227895896,,,,random_94,,residential,,1,61,C3,C,141,53,88
+250492234,,,,random_95,,yes,,1,61,C2,C,646,309,337
+250492235,,,,random_96,,yes,,1,61,C3,C,401,116,285
+250492238,,,,random_97,,apartments,,1,61,C3,C,920,367,553
+294276588,,,,random_98,,yes,,1,61,C3,C,681,358,323
+294276613,,,,random_99,,yes,,1,61,C2,C,654,550,104
+294276614,,,,random_100,,yes,,1,61,C2,C,22,14,8
+294276615,,,,random_101,,yes,,1,61,B1,B,830,655,175
+294276617,,,,random_102,,yes,,1,61,C2,C,566,416,150
+294276618,,,,random_103,,yes,,1,61,C3,C,793,522,271
+294276619,,,,random_104,,yes,,1,61,C2,C,560,433,127
+227895898,,,,random_105,,residential,,1,61,C1,C,26,9,17
+294276620,,,,random_106,,yes,,1,61,C2,C,690,268,422
+294276623,,,,random_107,,yes,,1,61,C2,C,571,230,341
+294276624,,,,random_108,,yes,,1,61,B1,B,4,0,4
+294276627,,,,random_109,,yes,,1,61,C2,C,651,398,253
+294276628,,,,random_110,,yes,,1,61,C2,C,918,644,274
+352922203,,,,random_111,,yes,,1,61,C1,C,127,68,59
+352922204,,,,random_112,,yes,,1,61,C1,C,134,109,25
+352922214,,,,random_113,,yes,,1,61,B2,B,721,283,438
+352937294,,,,random_114,,yes,,1,61,C1,C,346,298,48
+352937296,,,,random_115,,yes,,1,61,A1,A,911,169,742
+844474525,,,,Reliable Business Centre,,commercial,,1,61,C1,C,454,446,8
+228031928,,,Building no. 29,Samruddhi CHS,Oshiwara Link Road,residential,,1,61,A1,A,886,747,139
+249860339,,,,Sanskar,,apartments,,1,61,A1,A,226,77,149
+249860384,,,,Sargam,,apartments,,1,61,B1,B,490,348,142
+352937274,,,,Shantivan Bldg no. 1-3,Off New Link Road,apartments,,1,61,A1,A,701,334,367
+294272982,,,,Shantivan Bldg no. 4-7,Off New Link Road,residential,,1,61,A1,A,198,164,34
+249860343,,,,Tarapore Towers,,apartments,,1,61,A2,A,686,536,150
+249860500,,,,Tarapore Towers,,apartments,,1,61,A2,A,407,275,132
+358822892,,,,Tarapore Towers,,apartments,,1,61,A2,A,705,590,115
+358822894,,,,Tarapore Towers,,apartments,,1,61,A2,A,733,379,354
+358822896,,,,Tarapore Towers,,apartments,,1,61,A2,A,379,222,157
+202061691,,,,"Transit Camp, Behram Baug",,commercial,,1,61,C1,C,613,156,457
+249860432,,,,Utsav,,apartments,,1,61,A1,A,695,17,678
