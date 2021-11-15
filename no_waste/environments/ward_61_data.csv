@@ -1,4 +1,4 @@
-osm_id,buildingma,accessroof,addrhousen,name,addrstreet,building,roofmateri,osmid,osmward,building_cluster,region,total waste,dry waste,wet waste
+osm_id,buildingma,accessroof,addrhousen,name,addrstreet,building_type,roofmateri,osmid,osmward,building_cluster,region,total waste,dry waste,wet waste
 228031933,,,,Anand Vihar,,residential,,1,61,A1,A,291,83,208
 844471187,,,,City International School,,school,,1,61,C1,C,599,379,220
 228031930,,,,East Side Apartments,,apartments,,1,61,A1,A,523,79,444

@@ -26,7 +26,7 @@ regions = json.load(open('regions.geojson', 'r'))
 
 
 dfd = pd.read_csv('ward_61_data_1.csv')
-dfr = pd.read_csv('dummy_r.csv')
+#dfr = pd.read_csv('dummy_r.csv')
 radio=list(dfd.columns)
 for i in range(0,12,1):
     radio.pop(0)
@@ -139,7 +139,9 @@ for i in range(1,len(col)):
 layout.append(dbc.Row(dd2,justify="center"))
 
 # adding radio buttons
-layout.append(dbc.Row(html.P("Select Waste Type:")))
+
+layout.append(dbc.Row(dbc.Col((html.P("Select Waste Type:"))
+                              ,width={'size': 8, 'offset': 1})))
 layout.append(dbc.Row([
     dbc.Col([
 
@@ -150,12 +152,13 @@ layout.append(dbc.Row([
         value=radio[0],
         labelStyle={'display': 'inline-block'}
     )
-    ], width=12)
+    ], width={'size': 8, 'offset': 1})
 ]
 
 ))
 
-layout.append(dbc.Row(html.P("Select Area:")))
+layout.append(dbc.Row(dbc.Col((html.P("Select Area:"))
+                              ,width={'size': 8, 'offset': 1})))
 layout.append(dbc.Row([
     dbc.Col([
 
@@ -166,7 +169,7 @@ layout.append(dbc.Row([
         value=col[2],
         labelStyle={'display': 'inline-block'}
     )
-    ], width=12)
+    ], width={'size': 8, 'offset': 1})
 ]
 
 ))
@@ -178,6 +181,52 @@ layout.append(dbc.Row([
 
     ])
 ]))
+
+rad_graph=[]
+for i in range(2,len(col)):
+    rad_graph.append(col[i])
+layout.append(dbc.Row([
+    dbc.Col([
+        html.Div([
+                html.H4("Select Area"),
+                dcc.RadioItems(
+                    id='graph_radio',
+                    options=[{'value': x, 'label':"        " +x+ "          "}
+                             for x in rad_graph],
+                    value=rad_graph[0],
+                    labelStyle={}
+                ),
+
+       ]),
+
+        html.Div([
+                html.H4(""),
+                html.H4("Select Name"),
+                dcc.Dropdown(
+                    id='graph_op',
+                    options=[]
+                )]
+        ),
+        html.Div([
+            html.H4(""),
+            html.H4("Select Date Range"),
+            dcc.DatePickerRange(
+                id='my-date-picker-range',
+                min_date_allowed=date(2021, 10, 1),
+                max_date_allowed=date(2021, 10, 31),
+                initial_visible_month=date(2021, 10, 1),
+                end_date=date(2021, 10, 31),
+                start_date=date(2021,10,1)
+            ),
+
+        ])
+
+
+    ],width=3),
+    dbc.Col(
+        dcc.Graph(id="line-chart"),
+    width=8)
+              ]))
 # layout.append(html.P(col[0]))           #topmost dropdown
 # layout.append(dcc.Dropdown(
 #     id=col[0],
@@ -246,7 +295,7 @@ def date_selected(date):
 #     )
 #     fig.update_geos(fitbounds="locations", visible=False)
 #     return fig
-data=dfr
+data=dfd
 geo=regions
 ip=[]
 ip.append(Input('waste_type','value'))
@@ -287,7 +336,7 @@ def show_map(*args):
                     li[1] += dfd['total waste'][ind]
                     li[2] += dfd['wet waste'][ind]
                     li[3] += dfd['dry waste'][ind]
-                    break
+
 
         data = pd.DataFrame(dat, columns=fields)
         i=0
@@ -313,10 +362,14 @@ def show_map(*args):
 
         fields = ['building_cluster', 'name','total waste', 'wet waste', 'dry waste']
 
-        for i in dfd.index:
+       # dfr=dfd.groupby(['building_cluster','name'], as_index=False)['name'].
+        dfc=dfd.copy()
+        dfr = dfc.drop_duplicates(['name', 'building_cluster'])[['name', 'building_cluster']]
+
+        for i in dfr.index:
             l = []
-            l.append(dfd['building_cluster'][i])
-            l.append(dfd['name'][i])
+            l.append(dfr['building_cluster'][i])
+            l.append(dfr['name'][i])
             for j in range(3):
                 l.append(0)
             dat.append(l)
@@ -360,6 +413,7 @@ def show_map(*args):
         mody['features'] = feat
         data=dfd
         geo=mody
+
     fig = px.choropleth(
         data,
         locations="id",
@@ -368,6 +422,30 @@ def show_map(*args):
     )
     fig.update_geos(fitbounds="locations", visible=False)
     return fig
+
+@app.callback(
+    Output('graph_op','options'),
+    Input('graph_radio','value')
+)
+def populate(sel):
+    op=[]
+    #if sel=='Ward':
+    dff=df.copy()
+    li=list(dff[sel].unique())
+    for k in li:
+        op.append({'label':k,'value':k})
+    return op
+
+# @app.callback(
+#     Output("line-chart", "figure"),
+#     [
+#         Input('graph_op','value'),
+#         Input('graph_radio','value')
+#     ]
+# )
+# def draw_graph(col,val):
+#
+
 
 if __name__ == "__main__":
     app.run_server(debug=True)
