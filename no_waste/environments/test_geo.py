@@ -1,33 +1,12 @@
-import json
+import datetime
 import pandas as pd
 
-dfr=pd.read_csv('ward_61_data.csv')
-dfd=dfr.copy()
-#print(dfd)
+df=pd.read_csv('ward_61_data_1.csv')
 
-reg=dfd['region'].unique()
+print(datetime.date(2021,2,2))
 
-data=[]
-
-fields=['region','total waste','wet waste','dry waste']
-
-for i in reg:
-    l=[]
-    l.append(i)
-    for i in range(3):
-        l.append(0)
-    data.append(l)
-
-
-for ind in dfd.index:
-    for li in data:
-        if li[0]==dfd['region'][ind]:
-            li[1]+=dfd['total waste'][ind]
-            li[2]+=dfd['wet waste'][ind]
-            li[3]+=dfd['dry waste'][ind]
-            break
-
-dfm = pd.DataFrame(data, columns = fields)
-print(dfm)
-
-
+dl=df['coll_date'].unique()
+dl=pd.to_datetime(dl)
+print(dl)
+print(dl.max())
+print(type(df['coll_date'][0]))
