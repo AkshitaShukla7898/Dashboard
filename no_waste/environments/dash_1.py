@@ -1,3 +1,4 @@
+import datetime
 from datetime import date
 
 import pandas as pd
@@ -22,10 +23,10 @@ dd1=[]
 dd2=[]
 
 ward_61 = json.load(open('ward61.geojson', 'r'))
-regions = json.load(open('regions.geojson', 'r'))
+regions = json.load(open('region_ward61.geojson', 'r'))
 
 
-dfd = pd.read_csv('ward_61_data_1.csv')
+dfd = pd.read_csv('ward61_dummy.csv')
 
 date_list=dfd['coll_date']
 date_list=pd.to_datetime(date_list)
@@ -87,10 +88,10 @@ i=0
 
 # dat=slider_dic()
 
-layout.append(dbc.Row(dbc.Col([html.Br(),html.H1("DASHBOARD"),html.Br()],
-                        width={'size': 8, 'offset': 5},
-                        ),
-                ))
+# layout.append(dbc.Row(dbc.Col([html.Br(),html.H1("DASHBOARD"),html.Br()],
+#                         width={'size': 8, 'offset': 5},
+#                         ),
+#                 ))
 # layout.append(dbc.Row(dbc.Col(html.P('Select Date'),
 #                               width={'size': 6},)))
 # layout.append(dbc.Row(dbc.Col(html.Div([
@@ -211,33 +212,35 @@ for i in range(1,len(col)):
 #     ])
 #     ]))
 
-layout.append(dbc.Row([dbc.Col(dbc.Card(dd2,body=True, color="light"
+layout.append(dcc.Tab(label='MAP', children=[dbc.Row([dbc.Col(dbc.Card(dd2,body=True, color="light"
                               ),width={'size': 4, 'offset': 0}),
                dbc.Col([
 
                    dbc.Card([html.Br(), dcc.Graph(id='choropleth',figure={}),html.Br()],body=True, color="secondary")
 
                     ],width={'size': 8, 'offset': 0})
-                       ]))
+                       ])]))
+#########GRAPH STARTS HERE##############
 
-layout.append(dbc.Row(dbc.Col([
-                        html.Br(),
-                        html.Hr(),
-],
-                        width={'size': 12, 'offset': 0},
-                        ),
-                ))
 
-layout.append(dbc.Row(dbc.Col([
-
-                        html.Br(),
-                        #html.Hr(),
-                        html.H2("DAILY WASTE COLLECTION"),
-                        html.Br(),
-                            ],
-                        width={'size': 7, 'offset': 4},
-                        ),
-                ))
+# layout.append(dbc.Row(dbc.Col([
+#                         html.Br(),
+#                         html.Hr(),
+# ],
+#                         width={'size': 12, 'offset': 0},
+#                         ),
+#                 ))
+############# GRAPH STARTS HERE###########################
+# layout.append(dbc.Row(dbc.Col([
+#
+#                         html.Br(),
+#                         #html.Hr(),
+#                         html.H2("DAILY WASTE COLLECTION"),
+#                         html.Br(),
+#                             ],
+#                         width={'size': 7, 'offset': 4},
+#                         ),
+#                 ))
 
 # adding radio buttons
 
@@ -287,7 +290,17 @@ layout.append(dbc.Row(dbc.Col([
 # rad_graph=[]
 # for i in range(2,len(col)):
 #     rad_graph.append(col[i])
-layout.append(dbc.Row([
+layout.append(dcc.Tab(label='GRAPH',children=[dbc.Row(dbc.Col([
+
+                        html.Br(),
+                        #html.Hr(),
+                        html.H2("DAILY WASTE COLLECTION"),
+                        html.Br(),
+                            ],
+                        width={'size': 7, 'offset': 4},
+                        ),
+                ),
+    dbc.Row([
     dbc.Col([ dbc.Card([
         html.Div([
 
@@ -342,7 +355,7 @@ layout.append(dbc.Row([
     dbc.Col(
         dcc.Graph(id="line-chart"),
     width={'size': 8, 'offset': 0})
-              ]))
+              ])]))
 # layout.append(html.P(col[0]))           #topmost dropdown
 # layout.append(dcc.Dropdown(
 #     id=col[0],
@@ -368,7 +381,11 @@ for i in range(1,len(col)):
 #print(output)
 
 #passing layout list with all components to app layout
-app.layout=html.Div(layout)
+app.layout=html.Div([dbc.Row(dbc.Col([html.Br(),html.H1("DASHBOARD"),html.Br()],
+                        width={'size': 8, 'offset': 5},
+                        ),
+                ),
+                     dcc.Tabs(layout)])
 
 #app call back to connect input and output components here diff dropdowns
 @app.callback(
@@ -438,21 +455,23 @@ def show_map(*args):
 
         dat = []
 
-        fields = ['region', 'total waste', 'wet waste', 'dry waste']
-
+        fields = ['region']
+        for i in radio:
+            fields.append(i)
         for i in reg:
             l = []
             l.append(i)
-            for i in range(3):
+            for i in range(len(radio)):
                 l.append(0)
             dat.append(l)
 
         for ind in dfd.index:
             for li in dat:
                 if li[0] == dfd['region'][ind]:
-                    li[1] += dfd['total waste'][ind]
-                    li[2] += dfd['wet waste'][ind]
-                    li[3] += dfd['dry waste'][ind]
+                    j=1
+                    for i in radio:
+                        li[j] += dfd[i][ind]
+                        j+=1
 
 
         data = pd.DataFrame(dat, columns=fields)
@@ -477,8 +496,9 @@ def show_map(*args):
         # bn = dfd['name']
         dat = []
 
-        fields = ['building_cluster', 'name','total waste', 'wet waste', 'dry waste']
-
+        fields = ['building_cluster', 'name']
+        for i in radio:
+            fields.append(i)
        # dfr=dfd.groupby(['building_cluster','name'], as_index=False)['name'].
         dfc=dfd.copy()
         dfr = dfc.drop_duplicates(['name', 'building_cluster'])[['name', 'building_cluster']]
@@ -487,17 +507,17 @@ def show_map(*args):
             l = []
             l.append(dfr['building_cluster'][i])
             l.append(dfr['name'][i])
-            for j in range(3):
+            for j in range(len(radio)):
                 l.append(0)
             dat.append(l)
 
         for ind in dfd.index:
             for li in dat:
                 if li[0] == dfd['building_cluster'][ind]:
-                    li[2] += dfd['total waste'][ind]
-                    li[3] += dfd['wet waste'][ind]
-                    li[4] += dfd['dry waste'][ind]
-
+                    j=2
+                    for i in radio:
+                        li[j] += dfd[i][ind]
+                        j+=1
 
         data = pd.DataFrame(dat, columns=fields)
        # print(data)
@@ -570,19 +590,23 @@ def draw_graph(col,val,wt,sd,ed):
 
 
     dft['coll_date'] = pd.to_datetime(dft['coll_date'])
+    dft['col_date']=dft['coll_date']
    # dft = dft[dft['coll_date'].loc[2021-10-1:2021-10-31]]
     #dft['coll_date'] = pd.to_datetime(df['coll_date'])
-    #dft = dft.set_index('coll_date')
+   # dft = dft.set_index('col_date')
     v=str(val)
     date=[]
-    # sd=pd.to_datetime(sd)
-    # ed=pd.to_datetime(ed)
+    # sd=datetime.date(sd)
+    # ed=datetime.date(ed)
+    print(sd)
+    print(ed)
+
     # for i in range(sd,ed):
     #     date.append(i)
     dft = dft.groupby([v.lower(),'coll_date'], as_index=False)[wt].sum()
     dft = dft[dft[v.lower()].isin(col)]
     # dft = dft[dft['coll_date'].isin(date)]
-
+    #dft = dft.loc[sd:ed]
     #dft = dft.set_index('coll_date')
     print(dft)
     waste=str(wt).upper()
